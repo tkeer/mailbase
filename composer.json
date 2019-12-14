@@ -1,0 +1,16 @@
+{
+    "name": "tkeer/mailbase",
+    "description": "package under development",
+    "autoload": {
+        "psr-4": {
+            "Tkeer\\Mailbase\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tkeer\\Mailbase\\MailbaseServiceProvider"
+            ]
+        }
+    }
+}
