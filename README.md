@@ -8,7 +8,7 @@ It also exposes a route `/mailbase` which you can visit to preview all the mails
 To install run the following command in your terminal:
 
 ```bash
-composer require tkeer/mailbase
+composer require tkeer/mailbase --dev
 ```
 
 Then run the migration
