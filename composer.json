@@ -1,10 +1,21 @@
 {
     "name": "tkeer/mailbase",
-    "description": "package under development",
+    "description": "Catch laravel emails for local development",
+    "keywords": ["laravel", "local", "development", "mail"],
+    "authors": [
+        {
+            "name": "taukeer",
+            "email": "taukeer.liaqat@gmail.com"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Tkeer\\Mailbase\\": "src/"
         }
+    },
+    "license": "MIT",
+    "require": {
+        "laravel/framework": ">=5.0"
     },
     "extra": {
         "laravel": {
