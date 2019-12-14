@@ -9,7 +9,7 @@ use Illuminate\Database\Migrations\Migration;
 /**
  * Class CreateMailLogsTable
  */
-class CreateMailLogsTable extends Migration
+class CreateMailBaseTable extends Migration
 {
     /**
      * Run the migrations.
