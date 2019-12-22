@@ -21,3 +21,10 @@ Finally, change `MAIL_DRIVER` to `mailbase` in your `.env` file:
 ```
 MAIL_DRIVER=mailbase
 ```
+
+## Usage
+### Clearing Saved Emails
+If you want to clear any of the saved emails that are in the database, use the following command:
+```
+php artisan mailbase:clear
+```
