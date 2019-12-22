@@ -33,12 +33,8 @@ class ClearMailbaseCommand extends Command
     {
         $this->line('Clearing stored Mailbase emails.');
 
-        try {
-            Mailbase::truncate();
-            $this->info('Cleared stored Mailbase emails.');
-        } catch (\Exception $exception) {
-            $this->error('Something went wrong while trying to clear the Mailbase table.');
-            $this->error($exception->getMessage());
-        }
+        Mailbase::truncate();
+
+        $this->info('Cleared stored Mailbase emails.');
     }
 }
