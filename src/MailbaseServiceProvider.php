@@ -2,6 +2,7 @@
 
 namespace Tkeer\Mailbase;
 
+use Illuminate\Mail\MailManager;
 use Tkeer\Mailbase\Commands\ClearMailbaseCommand;
 use Illuminate\Mail\MailServiceProvider;
 use Illuminate\Support\ServiceProvider;
@@ -19,7 +20,7 @@ class MailbaseServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        app('swift.transport')->extend('mailbase', function ($app) {
+        app(MailManager::class)->extend('mailbase', function ($app) {
             return new MailbaseTransport();
         });
 
