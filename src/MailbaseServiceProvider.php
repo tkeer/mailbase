@@ -19,7 +19,7 @@ class MailbaseServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        app('swift.transport')->extend('mailbase', function ($app) {
+        app(MailManager::class)->extend('mailbase', function ($app) {
             return new MailbaseTransport();
         });
 
