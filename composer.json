@@ -15,7 +15,7 @@
     },
     "license": "MIT",
     "require": {
-        "laravel/framework": ">=5.0"
+        "laravel/framework": "^7.0"
     },
     "extra": {
         "laravel": {
