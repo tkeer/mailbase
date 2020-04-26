@@ -9,17 +9,13 @@ use Illuminate\Support\ServiceProvider;
 
 class MailbaseServiceProvider extends ServiceProvider
 {
-    /**
-     * Extended register the Swift Transport instance.
-     *
-     * @return void
-     */
-    public function register()
-    {
-    }
-
     public function boot()
     {
+        // add `mailbase` to mailers config
+        config([
+            'mail.mailers.mailbase' => ['transport' => 'mailbase']
+        ]);
+
         app(MailManager::class)->extend('mailbase', function ($app) {
             return new MailbaseTransport();
         });
