@@ -15,14 +15,9 @@ class MailController extends Controller
         return view('mailbase::index', compact('mails'));
     }
 
-    public function show($id)
+    public function show(Mailbase $mailbase)
     {
-        /**
-         * not using route model binding for older versions
-         */
-        $mailbase = Mailbase::findOrFail($id);
-        $mailbase->is_read = 1;
-        $mailbase->save();
+        $mailbase->update(['is_read' => 1]);
 
         return response()->json($mailbase);
     }
