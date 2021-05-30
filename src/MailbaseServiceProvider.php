@@ -6,6 +6,7 @@ use Illuminate\Mail\MailManager;
 use Tkeer\Mailbase\Commands\ClearMailbaseCommand;
 use Illuminate\Mail\MailServiceProvider;
 use Illuminate\Support\ServiceProvider;
+use Tkeer\Mailbase\Commands\TestMailbaseCommand;
 
 class MailbaseServiceProvider extends ServiceProvider
 {
@@ -24,9 +25,10 @@ class MailbaseServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__ . '/routes.php');
         $this->loadViewsFrom(__DIR__ . '/views', 'mailbase');
 
-        if($this->app->runningInConsole()) {
+        if ($this->app->runningInConsole()) {
             $this->commands([
-                ClearMailbaseCommand::class
+                ClearMailbaseCommand::class,
+                TestMailbaseCommand::class,
             ]);
         }
     }

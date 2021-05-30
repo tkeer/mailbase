@@ -36,6 +36,13 @@ change `MAIL_DRIVER` to `mailbase` in your `.env` file:
 
 ## Usage
 
+
+### Send dummy email
+You can run following command to test mailbase driver by sending a dummy email.
+```
+php artisan mailbase:test
+```
+
 ### Clearing Saved Emails
 If you want to clear any of the saved emails that are in the database, use the following command:
 ```
