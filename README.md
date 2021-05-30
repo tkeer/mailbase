@@ -6,7 +6,7 @@ It then exposes a route `/mailbase` which you can visit to preview all the mails
 ![Mailbase preview](https://user-images.githubusercontent.com/20635376/71377339-5828dc00-25e6-11ea-8c1b-fa8925d6aae2.png)
 
 ## Installation
-### Laravel 6.x or higher
+### Laravel 7.x or higher
 
 To install run the following command in your terminal:
 
@@ -25,9 +25,9 @@ Finally, change `MAIL_MAILER` to `mailbase` in your `.env` file:
 MAIL_MAILER=mailbase
 ```
 
-### Laravel (5.x)
+### Laravel (5.x|6.x)
 ```bash
-composer require tkeer/mailbase ^0.1 --dev
+composer require tkeer/mailbase ^0.3 --dev
 ```
 ```
 php artisan migrate
