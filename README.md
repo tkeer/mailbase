@@ -27,7 +27,7 @@ MAIL_MAILER=mailbase
 
 ### Laravel (5.x|6.x)
 ```bash
-composer require tkeer/mailbase ^0.3 --dev
+composer require tkeer/mailbase ^0.4 --dev
 ```
 ```
 php artisan migrate
