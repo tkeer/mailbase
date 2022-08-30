@@ -127,7 +127,7 @@
       $('.mail.selected').removeClass('selected')
       $(this).addClass('selected').removeClass('unread')
       $.get('/mailbase/' + $(this).data('id'), function (response) {
-        $("#mail-iframe").attr('srcdoc', response.body)
+        $("#mail-iframe").attr('srcdoc', '<base target="_blank" /> ' + response.body)
         $("#mail-subject").html(response.subject)
         $("#mail-to").text(response.htmlTo);
         $("#mail-from").text(response.htmlFrom)
