@@ -22,10 +22,10 @@ class CreateMailBaseTable extends Migration
 
             $table->bigIncrements('id');
 
-            $table->json('from')->nullable();
-            $table->json('to')->nullable();
-            $table->json('cc')->nullable();
-            $table->json('bcc')->nullable();
+            $table->text('from')->nullable();
+            $table->text('to')->nullable();
+            $table->text('cc')->nullable();
+            $table->text('bcc')->nullable();
             $table->string('subject');
             $table->text('body');
             $table->text('headers')->nullable();
