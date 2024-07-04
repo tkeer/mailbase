@@ -10,9 +10,9 @@ class MailController extends Controller
 {
     public function index()
     {
-        $mails = Mailbase::latest('sent_at')->paginate(20);
+        $mails = Mailbase::query()->latest('sent_at')->paginate(20);
 
-        return view('mailbase::index', compact('mails'));
+        return view('mailbase::index', ['mails' => $mails]);
     }
 
     public function show(Mailbase $mailbase)

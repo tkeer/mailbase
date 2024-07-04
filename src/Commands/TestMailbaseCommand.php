@@ -3,10 +3,10 @@
 namespace Tkeer\Mailbase\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Mail\Mailer;
 use Illuminate\Mail\MailManager;
+use Illuminate\Mail\Message;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
-use Tkeer\Mailbase\Mailbase;
 
 class TestMailbaseCommand extends Command
 {
@@ -36,14 +36,16 @@ class TestMailbaseCommand extends Command
 
         if ($mailer->getDefaultDriver() !== 'mailbase') {
             $this->output->error("Mailbase may not be set as your mail driver.\nPlease don't forget to set mailbase as MAIL_MAILER in your env file.");
-            return 0;
+            return;
         }
 
-        \Mail::raw('Hello from Mailbase', function ($msg) {
+        Mail::mailer('mailbase')->raw('Hello from Mailbase', function (Message $msg) {
+
             $appName = config('app.name');
             $to = "admin@" . Str::slug($appName) . ".local";
-            $msg->to($to)->subject('Test Email')
-                ->setBody("Hi, welcome to $appName!");
+            $msg->to($to, 'Admin')
+                ->subject('Test Email')
+                ->text("Hi, welcome to $appName!");
 
             $this->output->success("Mail is sent! Please it at /mailbase");
         });

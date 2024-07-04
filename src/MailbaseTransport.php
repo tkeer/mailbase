@@ -2,35 +2,42 @@
 
 namespace Tkeer\Mailbase;
 
-use Illuminate\Mail\Transport\Transport;
-use Swift_Mime_SimpleMessage;
+use Symfony\Component\Mailer\SentMessage;
+use Symfony\Component\Mailer\Transport\AbstractTransport;
 
-class MailbaseTransport extends Transport
+class MailbaseTransport extends AbstractTransport
 {
-
-    /**
-     * @inheritDoc
-     *
-     * @param Swift_Mime_SimpleMessage $message
-     * @param null $failedRecipients
-     * @return int|void
-     */
-    public function send(Swift_Mime_SimpleMessage $message, &$failedRecipients = null)
+    protected function doSend(SentMessage $message): void
     {
-        $this->beforeSendPerformed($message);
+        /**
+         * @var $email \Symfony\Component\Mime\Email
+         */
+        $email = $message->getOriginalMessage();
+
+        $subject = $email->getSubject();
+        $from = collect($email->getFrom())->map->toString()->implode("\n");
+        $to = collect($email->getTo())->map->toString()->implode("\n");
+        $cc = collect($email->getCc())->map->toString()->implode("\n");
+        $bcc = collect($email->getBcc())->map->toString()->implode("\n");
+        $body = $email->getHtmlBody() ?: $email->getTextBody();
+        $attachments = collect($email->getAttachments())->toJson();
+        $headers = $email->getHeaders()->toString();
 
         Mailbase::create([
-            'from'        => $message->getFrom(),
-            'to'          => $message->getTo(),
-            'cc'          => $message->getCc(),
-            'bcc'         => $message->getBcc(),
-            'subject'     => $message->getSubject(),
-            'body'        => $message->getBody(),
-            'headers'     => (string)$message->getHeaders(),
-            'attachments' => $message->getChildren() ? implode("\n\n", $message->getChildren()) : null,
+            'from'        => $from,
+            'to'          => $to,
+            'cc'          => $cc,
+            'bcc'         => $bcc,
+            'subject'     => $subject,
+            'body'        => $body,
+            'headers'     => $headers,
+            'attachments' => $attachments,
             'sent_at'     => now()->toDateTimeString(),
         ]);
+    }
 
-
+    public function __toString(): string
+    {
+        return 'mailbase';
     }
 }

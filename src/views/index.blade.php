@@ -73,9 +73,7 @@
                     </div>
                     <div style="display: flex; flex-wrap: wrap; justify-content: space-between">
                         <div>
-                            @foreach($mail->to as $email => $name)
-                                <span>{{ $email }}</span>
-                            @endforeach
+                            {{ $mail->to }}
                         </div>
                         <div>
                             <span>{{ $mail->sent_at->diffForHumans() }}</span>
@@ -129,8 +127,8 @@
       $.get('/mailbase/' + $(this).data('id'), function (response) {
         $("#mail-iframe").attr('srcdoc', '<base target="_blank" /> ' + response.body)
         $("#mail-subject").html(response.subject)
-        $("#mail-to").text(response.htmlTo);
-        $("#mail-from").text(response.htmlFrom)
+        $("#mail-to").text(response.to);
+        $("#mail-from").text(response.from)
       })
     }).first().click();
   })
