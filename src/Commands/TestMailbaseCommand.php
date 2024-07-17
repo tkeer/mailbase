@@ -47,7 +47,7 @@ class TestMailbaseCommand extends Command
                 ->subject('Test Email')
                 ->text("Hi, welcome to $appName!");
 
-            $this->output->success("Mail is sent! Please it at /mailbase");
+            $this->output->success("Mail is sent! Please view it at /mailbase");
         });
     }
 }
