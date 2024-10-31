@@ -1,6 +1,6 @@
 <?php
 
-namespace Tkeer\Mailbase\Commands;
+namespace Axn\MailCatcher\Console\Commands;
 
 use Illuminate\Console\Command;
 use Tkeer\Mailbase\Mailbase;

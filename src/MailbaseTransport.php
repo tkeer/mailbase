@@ -1,6 +1,6 @@
 <?php
 
-namespace Tkeer\Mailbase;
+namespace Axn\MailCatcher;
 
 use Symfony\Component\Mailer\SentMessage;
 use Symfony\Component\Mailer\Transport\AbstractTransport;
@@ -38,6 +38,6 @@ class MailbaseTransport extends AbstractTransport
 
     public function __toString(): string
     {
-        return 'mailbase';
+        return 'mailcatcher';
     }
 }

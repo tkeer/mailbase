@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tkeer\Mailbase;
+namespace Axn\MailCatcher\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 

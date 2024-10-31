@@ -1,27 +1,34 @@
 {
-    "name": "tkeer/mailbase",
-    "description": "Catch laravel emails for local development",
-    "keywords": ["laravel", "local", "development", "mail"],
-    "authors": [
-        {
-            "name": "taukeer",
-            "email": "taukeer.liaqat@gmail.com"
+    "name": "axn/preprod-mailcatcher-for-laravel",
+    "description": "Catch laravel emails for preproduction",
+    "keywords": ["laravel", "preprod", "development", "mail"],
+    "authors": [{
+            "name": "AXN Informatique",
+            "email": "developpement@axn.fr"
         }
     ],
     "autoload": {
         "psr-4": {
-            "Tkeer\\Mailbase\\": "src/"
+            "Axn\\MailCatcher\\": "src/"
         }
     },
     "license": "MIT",
     "require": {
-        "laravel/framework": ">=9.0"
+        "axn/laravel-app-informations": "^5.0.2",
+        "laravel/framework": "^10.0 || ^11.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.15.1",
+        "driftingly/rector-laravel": "^1.1",
+        "rector/rector": "^1.0.4"
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Tkeer\\Mailbase\\MailbaseServiceProvider"
+                "Axn\\MailCatcher\\ServiceProvider"
             ]
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

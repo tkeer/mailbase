@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-use Tkeer\Mailbase\MailController;
+use Axn\MailCatcher\MailController;
 use Illuminate\Routing\Middleware\SubstituteBindings;
+use Illuminate\Support\Facades\Route;
 
 Route::group(['as' => 'mailbase::', 'prefix' => 'mailbase', 'middleware' => SubstituteBindings::class], function () {
     Route::get('/', MailController::class . '@index')->name('index');

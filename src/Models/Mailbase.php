@@ -1,6 +1,6 @@
 <?php
 
-namespace Tkeer\Mailbase;
+namespace Axn\MailCatcher\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

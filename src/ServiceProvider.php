@@ -1,14 +1,14 @@
 <?php
 
-namespace Tkeer\Mailbase;
+namespace Axn\MailCatcher;
 
+use Axn\MailCatcher\Console\Commands\ClearMailbaseCommand;
+use Axn\MailCatcher\Console\Commands\TestMailbaseCommand;
 use Illuminate\Mail\MailManager;
-use Tkeer\Mailbase\Commands\ClearMailbaseCommand;
 use Illuminate\Mail\MailServiceProvider;
 use Illuminate\Support\ServiceProvider;
-use Tkeer\Mailbase\Commands\TestMailbaseCommand;
 
-class MailbaseServiceProvider extends ServiceProvider
+class ServiceProvider extends ServiceProvider
 {
     public function boot()
     {
