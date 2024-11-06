@@ -2,6 +2,10 @@
     "name": "axn/preprod-mailcatcher-for-laravel",
     "description": "Catch laravel emails for preproduction",
     "keywords": ["laravel", "preprod", "development", "mail"],
+    "homepage": "https://github.com/AXN-Informatique/preprod-mailcatcher-for-laravel",
+    "support": {
+        "issues": "https://github.com/AXN-Informatique/preprod-mailcatcher-for-laravel/issues"
+    },
     "authors": [{
             "name": "AXN Informatique",
             "email": "developpement@axn.fr"

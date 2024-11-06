@@ -4,22 +4,23 @@ declare(strict_types=1);
 
 namespace Axn\MailCatcher\Http\Controllers;
 
+use Axn\MailCatcher\Models\Mailcatcher;
 use Illuminate\Routing\Controller;
 
 class MailController extends Controller
 {
     public function index()
     {
-        $mails = Mailbase::query()->latest('sent_at')->paginate(20);
+        $mails = Mailcatcher::query()->latest('sent_at')->paginate(20);
 
         return view('mailbase::index', ['mails' => $mails]);
     }
 
-    public function show(Mailbase $mailbase)
+    public function show(Mailcatcher $mailcatcher)
     {
-        $mailbase->update(['is_read' => 1]);
+        $mailcatcher->update(['is_read' => 1]);
 
-        return response()->json($mailbase);
+        return response()->json($mailcatcher);
     }
 
 }

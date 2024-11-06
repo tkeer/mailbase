@@ -4,9 +4,9 @@ namespace Axn\MailCatcher\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Mailbase extends Model
+class Mailcatcher extends Model
 {
-    protected $table = 'mailbase_emails';
+    protected $table = 'catcher_emails';
 
     protected $guarded = [];
 

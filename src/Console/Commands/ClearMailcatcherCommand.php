@@ -3,16 +3,16 @@
 namespace Axn\MailCatcher\Console\Commands;
 
 use Illuminate\Console\Command;
-use Tkeer\Mailbase\Mailbase;
+use Tkeer\Mailbase\Mailcatcher;
 
-class ClearMailbaseCommand extends Command
+class ClearMailcatcherCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'mailbase:clear';
+    protected $signature = 'mailcatcher:clear';
 
     /**
      * The console command description.
@@ -33,7 +33,7 @@ class ClearMailbaseCommand extends Command
     {
         $this->line('Clearing stored Mailbase emails.');
 
-        Mailbase::truncate();
+        Mailcatcher::truncate();
 
         $this->info('Cleared stored Mailbase emails.');
     }

@@ -18,7 +18,7 @@ class CreateMailBaseTable extends Migration
      */
     public function up()
     {
-        Schema::create('mailbase_emails', function (Blueprint $table) {
+        Schema::create('catcher_emails', function (Blueprint $table) {
 
             $table->bigIncrements('id');
 
@@ -43,6 +43,6 @@ class CreateMailBaseTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mailbase_emails');
+        Schema::dropIfExists('catcher_emails');
     }
 }

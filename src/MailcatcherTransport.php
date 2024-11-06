@@ -5,7 +5,7 @@ namespace Axn\MailCatcher;
 use Symfony\Component\Mailer\SentMessage;
 use Symfony\Component\Mailer\Transport\AbstractTransport;
 
-class MailbaseTransport extends AbstractTransport
+class MailcatcherTransport extends AbstractTransport
 {
     protected function doSend(SentMessage $message): void
     {
