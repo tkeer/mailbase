@@ -32,7 +32,5 @@
                 "Axn\\MailCatcher\\ServiceProvider"
             ]
         }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
