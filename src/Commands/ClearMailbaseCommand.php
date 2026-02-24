@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tkeer\Mailbase\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Storage;
 use Tkeer\Mailbase\Mailbase;
 
 class ClearMailbaseCommand extends Command
@@ -19,22 +22,19 @@ class ClearMailbaseCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Delete all emails stored by Mailbase in the database.';
+    protected $description = 'Delete all emails and attachment files stored by Mailbase.';
 
-    /**
-     * Execute the console command. Attempt to delete
-     * all of the Mailbase items stored in the DB.
-     * If an exception is thrown, catch it and
-     * display it in the console.
-     *
-     * @return void
-     */
-    public function handle()
+    public function handle(): void
     {
         $this->line('Clearing stored Mailbase emails.');
 
         Mailbase::truncate();
 
-        $this->info('Cleared stored Mailbase emails.');
+        $disk = Storage::disk(config('mailbase.disk', 'mailbase'));
+        foreach ($disk->allDirectories() as $dir) {
+            $disk->deleteDirectory($dir);
+        }
+
+        $this->info('Cleared stored Mailbase emails and attachments.');
     }
 }
